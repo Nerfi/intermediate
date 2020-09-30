@@ -6,8 +6,8 @@ import LandingPage from './Components/LandingPage';
 import { BrowserRouter as Router, Route,  Switch } from "react-router-dom";
 import Posts from './Components/Posts';
 import CreatePost from './Components/CreatePost';
-import Signup from '../Auth/Signup';
-import SignIn from '../Auth/SignIn';
+import Signup from './Auth/Signup';
+import SignIn from './Auth/SignIn';
 import SinglePost from './Components/SinglePost';
 import EditPost from './Components/EditPost';
 //importing the context in order to listen when the user auth state changes
