@@ -1,0 +1,23 @@
+.signup__container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15vh;
+
+}
+
+
+.signup__form {
+
+  width: 350px;
+  height: 350px;
+  padding-top: 60px;
+  border-style: double;
+
+  box-shadow: 0 8px 6px -6px black;
+  background: #abbaab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+

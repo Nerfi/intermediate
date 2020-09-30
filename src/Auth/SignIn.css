@@ -1,0 +1,30 @@
+.signIn__container {
+
+  display: flex;
+  justify-content: center;
+  margin-top: 15vh;
+}
+
+
+.signIn__form {
+  width: 350px;
+  align-items: center;
+  border-style: double;
+  height: 350px;
+  padding-top: 60px;
+
+  /* gradients adn background color */
+
+  box-shadow: 0 8px 6px -6px black;
+  background: #abbaab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #abbaab);
+}
+
+
+/*styling button */
+
+.btn__signin {
+  margin: 20px;
+
+}
