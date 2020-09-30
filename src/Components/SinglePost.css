@@ -1,0 +1,84 @@
+.singlePost__title {
+  margin: 25px;
+}
+
+.singlePost__img {
+  border-style: double;
+  width: 450px;
+}
+
+
+.singlePost__content > p {
+  font-size: 25px;
+  font-family: 'Architects Daughter', cursive;
+
+}
+
+
+.singlePost__data {
+  display: flex;
+  width: 250px;
+  justify-content: space-evenly;
+  margin-left: 33rem;
+
+
+}
+
+
+.post__input {
+  flex: 1;
+  border:none;
+}
+
+.button__input {
+  flex:0;
+  background-color: none;
+}
+
+
+.singlePost__comments > ul {
+ list-style: none;
+}
+
+.singlePost__comments {
+  margin: 20px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+
+}
+
+
+.singlePost__conditional > button{
+  display: inline-flex;
+  margin: 8px;
+
+}
+
+.singlePost__container {
+  padding:  20px;
+}
+
+/*  responsiveness*/
+
+@media only screen and (max-width: 568px) {
+    .singlePost__data {
+      margin-left:  18vh;
+
+    }
+ }
+
+/*examples  */
+
+@media(max-width: 992px) {
+  .singlePost__data {
+
+    margin-left: 55vh
+  }
+}
+
+@media(max-width: 768px) {
+  .singlePost__data {
+    margin-left: 40vh;
+
+  }
+}

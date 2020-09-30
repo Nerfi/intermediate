@@ -1,0 +1,12 @@
+.create__form {
+  display: flex;
+  justify-content: center;
+  margin-top: 15vh;
+}
+
+
+/* styling button */
+
+.btn_create {
+  margin: 15px;
+}

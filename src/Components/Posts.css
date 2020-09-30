@@ -1,0 +1,34 @@
+.posts__container {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 45px;
+  margin-left:  15vh;
+
+
+}
+
+
+
+.posts__category {
+  margin:  100px;
+}
+
+
+/* media queries */
+
+
+@media(max-width: 992px) {
+  .posts__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .posts__container {
+    grid-template-columns: 1fr 1fr;
+    width: 200px;
+    margin-left:  20px;
+
+  }
+}

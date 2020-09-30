@@ -3,7 +3,6 @@ import 'firebase/firestore';
 //importing storage in order to upload img
 import 'firebase/storage';
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
