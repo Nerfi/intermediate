@@ -63,7 +63,7 @@ const SinglePost = (props) => {
     //calling the comments function
     fetchComments();
 
-  },[props.match.params.id, comments]);
+  },[comments]);
 
 
 
