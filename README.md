@@ -11,7 +11,7 @@ Tired of running out of Medium histories to read ? Intermediate is your go to ap
   - Firebase
   - React context
   - Bootstrap
-  - Firebas storage
+  - Firebase storage
 
 
 ### Installation

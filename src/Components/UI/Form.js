@@ -63,7 +63,7 @@ const Form = ({action,editData, match, history}) => {
         .child(file.name)
         .getDownloadURL()
         .then((url) => {
-          ///setFile(null);
+          setFile(null);
           setURL(url);
       })
 
@@ -86,7 +86,8 @@ const createPost = async (e) => {
         content,
         value,
         imgUrl: url,
-        currentUser: user.uid
+        currentUser: user.uid,
+
       })
       .then(() => {
         history.push("/")
@@ -94,8 +95,8 @@ const createPost = async (e) => {
       .catch(error => setError(error.message))
 
   }
-      //callign the fucntion that will updload the img
-      handleFirebaseUpload();
+
+   handleFirebaseUpload();
 
 };
 
@@ -154,7 +155,7 @@ const createPost = async (e) => {
 
          </div>
 
-              <label>{editData && editData.content ?  editData.content : "Content"}</label>
+             <label>{editData && editData.content ?  editData.content : "Content"}</label>
 
           <div className="form-group">
             <textarea

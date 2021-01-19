@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './SignUp.css';
 import firebase from '../firebase/firebase';
 import {Link } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 
 const Signup = () => {
@@ -12,6 +13,7 @@ const Signup = () => {
     username: ''
   });
 
+  const history = useHistory();
   //adding error handling state
   const [error, setError] = useState(null);
 
@@ -51,6 +53,7 @@ const Signup = () => {
                 displayName: username
             })
         }
+        history.push("/");
 
 
         //creating a user collection in order to store the users on it
@@ -74,11 +77,8 @@ const Signup = () => {
   return <div className="signup__container">
 
     <div className="signup__form">
-
-     <h2>Sign Up!</h2>
-
      {error && error}
-
+     <h2>Sign Up!</h2>
     <form onSubmit={handleSubmit}>
 
     <label> User name </label>
@@ -125,15 +125,9 @@ const Signup = () => {
         />
 
       </div>
-
-
       <button type="submit" className="btn_create">Sign Up!</button>
-
     </form>
-
     <p>already have an account ? <Link to="SignIn" >Sign In !</Link> </p>
-
-
 
     </div>
   </div>
