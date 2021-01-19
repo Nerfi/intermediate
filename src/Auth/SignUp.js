@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import './SignUp.css';
 import firebase from '../firebase/firebase';
-import {Link } from 'react-router-dom';
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory } from 'react-router-dom';
 
 
 const Signup = () => {
