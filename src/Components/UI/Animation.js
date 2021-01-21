@@ -8,7 +8,7 @@ const AnimationEffect = () => {
   //adding state in order to know on which word are we in
   const [current, setCurrent] = useState(0)
 
-  const words = ['Live', 'Love', 'Laught', 'share', 'Shine'];
+  const words = ['Live', 'Love', 'share', 'Shine'];
 
   useEffect(() => {
 

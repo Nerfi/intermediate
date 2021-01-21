@@ -55,9 +55,6 @@ const LandingPage = () => {
       {popular.map(post => {
         return <CardComponent data={post} key={post.id}/>
       })}
-
-
-
     </div>
 
     </>

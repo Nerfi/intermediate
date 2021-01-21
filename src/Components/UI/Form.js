@@ -51,14 +51,14 @@ const Form = ({action,editData, match, history}) => {
 
 
   //creating function in order to create in storaga firestore the images folder
-  const handleFirebaseUpload = () => {
+  const handleFirebaseUpload = async () => {
 
     //starting the upload process and also creating the path /images in firestore
     const uploadTask = storage.ref(`/images/${file.name}`).put(file);
 
     //refactoring
-    uploadTask.on('state_changed', () => {
-      storage
+   await uploadTask.on('state_changed', () => {
+       storage
         .ref("images")
         .child(file.name)
         .getDownloadURL()
@@ -70,7 +70,6 @@ const Form = ({action,editData, match, history}) => {
     },(err) => {
       setError(err.message);
     })
-
   };
 
 const handleCategory = e => setCategory({value: e.target.value});
@@ -125,10 +124,11 @@ const createPost = async (e) => {
     e.preventDefault();
 
     if (action === 'create') {
-      createPost();
+     return createPost();
     } else {
-      updatePost();
+     return updatePost();
     }
+
   };
 
 
@@ -148,8 +148,7 @@ const createPost = async (e) => {
              placeholder="Enter title"
              name="title"
              onChange={handleChange}
-
-            value={title}
+             value={title}
              required
              />
 
