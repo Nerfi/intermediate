@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import './LandingPage.css';
 import firebase from '../firebase/firebase';
 import CardComponent from './UI/Card';
-
 import AnimationEffect from './UI/Animation';
 
 
