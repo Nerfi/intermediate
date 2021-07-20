@@ -60,25 +60,30 @@
 
 /*  responsiveness*/
 
-@media only screen and (max-width: 568px) {
-    .singlePost__data {
-      margin-left:  18vh;
+@media(max-width: 480px) {
+  .singlePost__container {
+
+    justify-content: center;
+
+  }
+
+  .singlePost__img{
+    width: 150px;
+    height: 150px;
+  }
+
+  .singlePost__data {
+      margin-left: 0;
+      margin: 5px;
+
 
     }
- }
 
-/*examples  */
-
-@media(max-width: 992px) {
-  .singlePost__data {
-
-    margin-left: 55vh
-  }
+    .singlePost__comments{
+      justify-content: center;
+      margin:20px;
+      margin-right: 80px;
+    }
 }
 
-@media(max-width: 768px) {
-  .singlePost__data {
-    margin-left: 40vh;
 
-  }
-}

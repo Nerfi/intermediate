@@ -3,12 +3,14 @@ import './LandingPage.css';
 import firebase from '../firebase/firebase';
 import CardComponent from './UI/Card';
 import AnimationEffect from './UI/Animation';
+import LoadingSpinner from './UI/Loading';
 
 
 const LandingPage = () => {
 
   const [popular, setPopular] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
 
@@ -16,6 +18,7 @@ const LandingPage = () => {
 
       let postsBack = [];
 
+      setLoading(true);
       await firebase.firestore()
         .collection('posts')
         .where("likes", ">=", 5)
@@ -27,12 +30,16 @@ const LandingPage = () => {
           setPopular(postsBack);
         })
         .catch(error => setError(error.message))
+
+        setLoading(false);
     };
 
     //calling the function
     fetchPopularPosts();
 
   }, []);
+
+  if (loading) return <LoadingSpinner/>
 
   return (
     <>

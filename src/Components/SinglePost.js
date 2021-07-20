@@ -3,6 +3,7 @@ import firebase from '../firebase/firebase';
 import './SinglePost.css';
 import {AuthContext} from './UserContext/AuthContext';
 import {Link} from 'react-router-dom';
+import LoadingSpinner from './UI/Loading';
 
 const SinglePost = (props) => {
 
@@ -12,6 +13,7 @@ const SinglePost = (props) => {
   //adding state for comments
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const {likes} = selectedPost;
 
@@ -25,43 +27,61 @@ const SinglePost = (props) => {
 
 
 
+
     const fetchSelected = async () =>  {
 
-      await firebase.firestore().collection("posts")
-          .doc(props.match.params.id)
-          .get()
-          .then(doc => {
-             if(doc.exists) setSelected(doc.data())
-          })
-          .catch(error => {
-            setError(error.message);
-          })
+      try {
+
+          setLoading(true)
+        await firebase.firestore().collection("posts")
+            .doc(props.match.params.id)
+            .get()
+            .then(doc => {
+               if(doc.exists) setSelected(doc.data())
+            })
+            .catch(error => {
+              setError(error.message);
+            })
+
+      } catch(e) {
+        setError(e.message)
+      }
+
+          setLoading(false);
 
     };
 
     //fetching the comments for each posts
 
     const fetchComments = async () => {
+          try {
+            await firebase.firestore()
+                .collection('posts')
+                .doc(props.match.params.id)
+                .collection('comments')
+                .onSnapshot(snapShot => {
+                 // setComments(snapShot.docs.map(doc) => doc.data() )
+                  setComments(snapShot.docs.map(doc => doc.data()))
 
-        await firebase.firestore()
-            .collection('posts')
-            .doc(props.match.params.id)
-            .collection('comments')
-            .onSnapshot(snapShot => {
-             // setComments(snapShot.docs.map(doc) => doc.data() )
-              setComments(snapShot.docs.map(doc => doc.data()))
+                })
 
-            })
+          } catch(e) {
+            setError(e.message)
+          }
+
+
     };
 
 
 
   useEffect(() => {
 
-    //calling the funciton, always
-    fetchSelected();
-    //calling the comments function
-    fetchComments();
+    if(!loading) {
+      fetchSelected();
+      //calling the comments function
+      fetchComments();
+
+    }
 
   },[comments]);
 
@@ -69,6 +89,9 @@ const SinglePost = (props) => {
 
   const addLikes = async () => {
     //add likes action is kinda of upadte/patch request
+
+    try {
+
     await firebase
           .firestore()
           .collection("posts")
@@ -80,6 +103,9 @@ const SinglePost = (props) => {
           .catch(error => {
             setError(error.message)
           })
+    } catch(e) {
+      setError(e.message)
+    }
   };
 
 
@@ -101,14 +127,23 @@ const SinglePost = (props) => {
 
   const deletePost = async () => {
 
-    await firebase.firestore().collection('posts')
-    .doc(props.match.params.id)
-    .delete()
-    .then(() => {
-      props.history.push("/")
-    })
-    .catch(error => setError(error.message))
+    try{
+      await firebase.firestore().collection('posts')
+      .doc(props.match.params.id)
+      .delete()
+      .then(() => {
+        props.history.push("/")
+      })
+      .catch(error => setError(error.message))
+
+    }catch(e) {
+      setError(e.message)
+    }
+
   };
+
+  //displayign spinner
+  if(loading) return <LoadingSpinner/>
 
   //conditionally showing the comments form
 
@@ -132,6 +167,7 @@ const SinglePost = (props) => {
         </button>
       </form>
     );
+
     if(!user) form = null;
 
   return <div className="singlePost__container">
@@ -147,6 +183,7 @@ const SinglePost = (props) => {
 
     <div className="singlePost__content">
       <p> {selectedPost.content}</p>
+
     </div>
 
     {
