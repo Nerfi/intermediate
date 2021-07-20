@@ -98,6 +98,7 @@ if(retrieveData.length > 0) {
 
     </div>
     <div className="posts__container">
+
       {card}
     </div>
 
