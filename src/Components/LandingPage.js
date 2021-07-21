@@ -6,6 +6,7 @@ import AnimationEffect from './UI/Animation';
 import LoadingSpinner from './UI/Loading';
 
 
+
 const LandingPage = () => {
 
   const [popular, setPopular] = useState([]);
@@ -62,6 +63,8 @@ const LandingPage = () => {
         return <CardComponent data={post} key={post.id}/>
       })}
     </div>
+
+
 
     </>
 
