@@ -205,7 +205,7 @@ const SinglePost = (props) => {
       <div className="something2">
 
          <i className="fa fa-heart" onClick={addLikes} >
-          {selectedPost.likes === 0 ? "Be the firs to like the post" : selectedPost.likes}
+          {selectedPost.likes === 0 ? "Be the first to like the post" : selectedPost.likes}
          </i>
 
 
